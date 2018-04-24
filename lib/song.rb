@@ -57,11 +57,13 @@ class Song
   def self.new_from_filename(filename)
     string = filename.split(/\.|-/)
 
-    artist_name = string[0]
-    namea = string[1].lstrip
-    name = namea
+    artist_name = string[0].rstrip
+    name = string[1].lstrip
 
-    self.new_by_name(name)
+    song = self.new
+    song.name = name
+    song.artist_name = artist_name
+    song
   end
 
 
